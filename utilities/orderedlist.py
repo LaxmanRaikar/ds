@@ -8,15 +8,15 @@ def ordered_list():
     obj = OrderedList()
     list = []
     res = []
-    file = open("number", "r+")
+    file = open("number", "r+")     #opening the file to read and write
 
-    list1 = file.readlines()
+    list1 = file.readlines()       #reading the file
 
-    file_string = list1[0]
+    file_string = list1[0]         #storing the value
 
-    list1 = file_string.split()
+    list1 = file_string.split()     #converting to the list
     for i in range(0, len(list1)):
-        list.append(list1[i].strip())
+        list.append(list1[i].strip())   #adding values to the list
     file.close()
     res = [int(i) for i in list]
     res.sort()

@@ -345,12 +345,10 @@ class  dequeue:
         This method is used to know whether Deque is empty or not.
         return this will return True if Deque is empty or else  return False.
         """
-
         if self.front is None:
             return True
         else:
             return False
-
     def size(self):
         """
         This method is used to calculate size of Deque
