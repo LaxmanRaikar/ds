@@ -3,7 +3,7 @@ from utilities.utility import Stack
 def balance_parentheses():
     """
     This method is used as runner balanced_parentheses(string) method
-    :return:  nothing
+
     """
     stack = Stack()
     try:

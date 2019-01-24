@@ -1,22 +1,23 @@
-class Deque:
+def prime_anagram(res):
+    arr2 = []  # empty list to store the anagram elements
+    for i in range(len(res)):  # outer loop
+        for j in range(i + 1, len(res), 1):  # innerloop
+            if sorted(res[i]) == sorted(res[j]):
+                arr2.append(res[i])  # adding the anagram element to list
+                arr2.append(res[j])  # adding the anagram element to list
+            else:
+                pass
+    return arr2
 
-    def __init__(self):
-        self.items = []
 
-    def add_front(self, item):
-        self.items.append(item)
-
-    def add_rear(self, item):
-        self.items.insert(0, item)
-
-    def remove_front(self):
-        return self.items.pop()
-
-    def remove_rear(self):
-        return self.items.pop(0)
-
-    def is_empty(self):
-        return self.items == []
-
-    def size(self):
-        return len(self.items)
+# -----------------------------------------------------------------------------------------
+def prime():
+    arr = []
+    res = []
+    for i in range(1, 1001):
+        for j in range(2, i - 1):
+            if i % j == 0: break
+        else:
+            arr.append(i)
+    res = [str(i) for i in arr]
+    return res

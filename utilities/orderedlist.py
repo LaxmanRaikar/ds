@@ -4,7 +4,6 @@ def ordered_list():
     This method is used to read content of file.
     this method also append data into orderedList to perform operation on it
     this method also acts as runner for various method
-    :return:nothing
     """
     obj = OrderedList()
     list = []
