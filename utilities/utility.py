@@ -89,6 +89,8 @@ class LinkedList:
         """
         file = open("word", "r+")
         file.truncate(0)
+        """The method truncate() truncates the file's size. 
+        If the optional size argument is present, the file is truncated to (at most) that size."""
         file.close()
         if self.search_item(data) is True:      # search data using search method
             self.remove(data)                   # if found then remove
@@ -161,8 +163,9 @@ class OrderedList(LinkedList):
         """
         file = open("number", "r+")
         file.truncate(0)
+        """The method truncate() truncates the file's size. 
+                If the optional size argument is present, the file is truncated to (at most) that size."""
         file.close()
-
         if self.search_item(data) is True:              # if element found
             self.remove(data)                           # remove it using remove()
             file = open("number", "a+")
