@@ -1,7 +1,7 @@
-from utilities.utility import dequeue
+from utilities.lmn import Deque
 def pal_check(string):
     '''Palindrome checker using Deque'''
-    pal_dq = dequeue()
+    pal_dq = Deque
     for character in string:
         pal_dq.add_front(character)
     match = True

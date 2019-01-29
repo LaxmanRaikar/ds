@@ -1,0 +1,63 @@
+{
+  "rice": [
+    {
+      "name": "basmati rice",
+      "weight": 1,
+      "price": 100
+    },
+    {
+      "name": "brown rice",
+      "weight": 1,
+      "price": 80
+    },
+    {
+      "name": "jasmnine rice",
+      "weight": 1,
+      "price": 70
+    },
+    {
+      "name": "adhoni rice",
+      "weight": 1,
+      "price": 60
+    },
+    {
+      "name": "white rice",
+      "weight": 1,
+      "price": 50
+    }
+  ],
+  "pulses": [
+    {"name" :"dry beans",
+    "weight": 1,
+    "price": 30},
+    {
+      "name": "lentil",
+      "weight": 1,
+      "price": 20
+    },
+    {"name": "blacked eye pea",
+    "weight": 1,
+    "price": 20}
+
+
+  ],
+  "wheats": [
+    {
+      "name": "khorasan wheat",
+      "weight": 1,
+      "price": 40
+
+    },
+    {
+      "name": "emmer",
+      "weight": 1,
+      "price": 45
+    },
+    {
+      "name": "spelt",
+      "weight":1,
+      "price": 42
+
+    }
+  ]
+}
