@@ -1,0 +1,32 @@
+{
+  "company": [
+    {
+      "name":"IBM",
+      "share": 1,
+      "price": 400
+    },
+    {
+      "name": "HP",
+      "share": 1,
+      "price": 300
+    },
+    {
+      "name": "TATA",
+      "share": 1,
+      "price": 800
+    },
+    {
+      "name": "FB",
+      "share": 1,
+      "price": 1000
+    },
+    {
+      "name": "UBER",
+      "share": 1,
+      "price": 1200
+    }
+
+
+
+  ]
+}

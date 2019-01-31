@@ -1,63 +1,73 @@
 {
-  "rice": [
-    {
-      "name": "basmati rice",
-      "weight": 1,
-      "price": 100
-    },
-    {
-      "name": "brown rice",
-      "weight": 1,
-      "price": 80
-    },
-    {
-      "name": "jasmnine rice",
-      "weight": 1,
-      "price": 70
-    },
-    {
-      "name": "adhoni rice",
-      "weight": 1,
-      "price": 60
-    },
-    {
-      "name": "white rice",
-      "weight": 1,
-      "price": 50
-    }
-  ],
-  "pulses": [
-    {"name" :"dry beans",
-    "weight": 1,
-    "price": 30},
-    {
-      "name": "lentil",
-      "weight": 1,
-      "price": 20
-    },
-    {"name": "blacked eye pea",
-    "weight": 1,
-    "price": 20}
-
-
-  ],
-  "wheats": [
-    {
-      "name": "khorasan wheat",
-      "weight": 1,
-      "price": 40
-
-    },
-    {
-      "name": "emmer",
-      "weight": 1,
-      "price": 45
-    },
-    {
-      "name": "spelt",
-      "weight":1,
-      "price": 42
-
-    }
-  ]
+ "rice": [
+  {
+   "name": "basmati",
+   "price": 100,
+   "available": 100
+  },
+  {
+   "name": "kolam",
+   "price": 70,
+   "available": 100
+  },
+  {
+   "name": "basmati",
+   "price": 100000,
+   "available": 23
+  },
+  {
+   "name": "hydrabadi",
+   "price": 900,
+   "available": 30
+  },
+  {
+   "name": "patiyala",
+   "price": 80,
+   "available": 100
+  },
+  {
+   "name": "sonamasuri",
+   "price": 50,
+   "available": 10
+  }
+ ],
+ "pulses": [
+  {
+   "name": "Pigeon Peas",
+   "price": 60,
+   "available": 100
+  },
+  {
+   "name": "dry beans",
+   "price": 90,
+   "available": 100
+  },
+  {
+   "name": "Cowpeas",
+   "price": 50,
+   "available": 100
+  },
+  {
+   "name": "jawar",
+   "price": 90,
+   "available": 900
+  },
+  {
+   "name": "mung",
+   "price": 80,
+   "available": 90
+  }
+ ],
+ "wheats": [
+  {
+   "name": "emmer",
+   "price": 160,
+   "available": 100
+  },
+  {
+   "name": "common",
+   "price": 40,
+   "available": 100
+  }
+ ]
 }
