@@ -1,37 +1,33 @@
-from utilities.utility import dequeue
-def palindrome_checker():
-    """
-    This method is used to check for palindrome .
-    return this will return True if string is palindrome else return False
-    """
-    deque = dequeue()
+"""Palindrome Checker Program
+This program is used to check for palindrome.
+here user can give their string to know whether
+given string is palindrome or not
+Example:
+    Enter String to Check for Palindrome :: madam
+    True
+Author:Laxman Raikar
+Since:16 jan,2019
+"""
+from utilities.utility import Deq
+
+
+def pal_check(string):
     try:
-        string = input("Enter String to Check for Palindrome: ")
-    except Exception as e:
-        print(e)
-    lower_string = string.lower()
-    string = lower_string
-
-    remove_space = ''
-    for i in range(0, len(string)):
-        if string[i] == ' ':
-            continue
-
-        remove_space += string[i]
-
-    string = remove_space
-
-    for i in string:
-        deque.add_rear(i)
-    reverse_string = ''
-    for i in range(0, deque.size()):
-        reverse_string += str(deque.remove_rear())
-
-    if string == reverse_string:
-        return True
-    else:
-        return False
+        '''Palindrome checker using Deque'''
+        pal_dq = Deq()  # creating the object of class
+        for character in string:
+            pal_dq.add_front(character)
+        match = True
+        while pal_dq.size() > 1 and match:
+            front = pal_dq.remove_front() # eliminating  one element from front
+            rear = pal_dq.remove_rear()     # eliminating one element from rare
+            if front != rear:               # if front and rear element is not equal than it will return false
+                match = False
+        return match
+    except  ValueError:
+        print(ValueError)
 
 
-if __name__ == "__main__":
-    print(palindrome_checker())
+string_to_check_palindrome = input("enter the string to check the palindrome :")
+
+print(pal_check(string_to_check_palindrome))

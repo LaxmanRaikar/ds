@@ -1,6 +1,10 @@
+"""this program is used to  load inventory Data Management of Rice, Pulses and Wheats
+    from json file and append the items of rice,pulses and wheats from user
+    author:Laxman Raikar
+    since:28 JAN,2019
+"""
 import json
 
-import json
 
 class InventoryAdd:
     @staticmethod
@@ -8,27 +12,27 @@ class InventoryAdd:
         try:
             with open("by.json","r" ) as f:
                 data = json.load(f)
-                #loading the json data into the variable
+                # loading the json data into the variable
         except FileNotFoundError:
             print("not found")
             exit()
-            #if file not found it will exit out
-            print("Available items in our grocery store:")
+            # if file not found it will exit out
+        print("Available items in our grocery store:")
 
         print("rice :")
         for r in data["rice"]:
             print(r['name'], "- Per kg", r['price'], "Available-", r['available'], "kg")
-            #printing the rice details
+            # printing the rice details
 
         print("Pulses :")
         for p in data['pulses']:
             print(p['name'], "- Per kg", p['price'], "Available-", p['available'], "kg")
-            #printing the pulse details
+            # printing the pulse details
 
         print("Wheats :")
         for w in data['wheats']:
             print(w['name'], "- Per kg", w['price'], "Available-", w['available'], "kg")
-            #printing the wheat details
+            # printing the wheat details
 
         print("")
         i = input("rice or pulses or wheats\n")

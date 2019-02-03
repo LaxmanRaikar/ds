@@ -1,9 +1,6 @@
-""" this program is used to distribute the deck of cards to four players
-@ author : Laxman Raikar
-Since:28 JAN,2019"""
 import random
-
-
+from utilities.utility import  Queue
+q=Queue
 class Cards:
 
     def shuffle(self):
@@ -47,15 +44,20 @@ class Cards:
         player2 = []
         player3 = []
         player4 = []
+        l1=[]
+        for i in list_cards[0:9]:
+            i = tuple(((i[:2]), i[2:]))
+            l1.append(i)
+        l1.sort()
+        print()
+        print("Queue data")
+        print()
+        print("Player 1 Cards")
 
-        for i, j, k, l in zip(list_cards[:9], list_cards[9:18], list_cards[18:27], list_cards[27:]):
-            # The purpose of zip() is to map the similar index of multiple containers 
-            #  so that they can be used just using as single entity
-            player1.append(i)
-            player2.append(j)
-            player3.append(k)
-            player4.append(l)
-
+        for j in l1:
+            q.enqueue(j)
+        q.show()
+        print()
         print("Player 1 cards:")
         print(player1)
         print()
@@ -73,5 +75,3 @@ class Cards:
 if __name__ == "__main__":
     c = Cards()
     c.shuffle()
-
-

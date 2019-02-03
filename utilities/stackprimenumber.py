@@ -1,14 +1,23 @@
+"""Prime Numbers that are Anagram in the Range of 0 ­ 1000 in a Stack using
+the Linked List
+author: Laxman Raikar
+Since:16 JAN,2019
+"""
 from utilities import abc
+
 class Node:
     def __init__(self, data, next=None):
-        """
-        This is the constructor of Node class
-        """
+
+        # This is the constructor of Node class
+
         self.data = data
         self.next = next
+
+
 class linked_list:
     def __init__(self):
         self.head=None
+
     def add(self,data):
         node = Node(data)           # creation of node
         if self.head is None:
@@ -31,10 +40,10 @@ class linked_list:
         return list  # return Linked List
 
     def pop(self):
-        """
-        This method is used to delete last data which is inserted into the stack.
-        actually stack follow the Last in First Out order to pop the data from the stack
-        """
+
+        # This method is used to delete last data which is inserted into the stack.
+        # actually stack follow the Last in First Out order to pop the data from the stack
+
         traverse = self.head
         if self.head is None:  # if stack empty return -1
             return -1
@@ -48,23 +57,26 @@ class linked_list:
                 return t1.data
             traverse = traverse.next
 
-a= linked_list()
+
+a = linked_list()
+
 
 def printlink():
     prime_list = abc.prime()
-    anagram_list = abc.prime_anagram(prime_list)                #getting anagram prime number list
+    anagram_list = abc.prime_anagram(prime_list)                # getting anagram prime number list
     arr2=[]
 
-    for i in anagram_list:                      #loop to print the prime number values
+    for i in anagram_list:                      # loop to print the prime number values
         a.add(i)
     e=a.dis()
     print("prime anagram numbers:",e)
 
-    for j in anagram_list:                  #loop to print in reverse order
+    for j in anagram_list:                  # loop to print in reverse order
         m=a.pop()
         arr2.append(m)
     print("reversed order:",arr2)
 
 
 
-printlink()
+if __name__=="__main__":
+    printlink()

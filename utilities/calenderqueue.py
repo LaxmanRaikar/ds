@@ -1,4 +1,14 @@
+
+"""Calender using Queue Program
+This program is used to take month and year from user and print corresponding Calender using queue
+Author:Laxman Raikar
+Since:
+    16 JAN,2019
+"""
+
 from utilities.utility import calen_queue
+
+
 def calenderque():
     calen=calen_queue()
     try:
@@ -13,6 +23,7 @@ def calenderque():
         print('enter integers only')
 
     calen.calender(month, year)
+
+
 if __name__== "__main__":
     calenderque()
-

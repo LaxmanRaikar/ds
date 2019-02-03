@@ -1,4 +1,16 @@
+"""OrderedList File Program
+This program is used to take input from file and user can see the content of file
+then user can search for data that he is looking for .if the user data is found then
+that data will be removed from  OrderedList and saves into file and vice versa
+and at last user can see the updated content of file
+Author:Laxman Raikar
+Since:
+    16 DEC,2018
+"""
+
 from utilities.utility import OrderedList
+
+
 def ordered_list():
     """
     This method is used to read content of file.
@@ -8,7 +20,7 @@ def ordered_list():
     obj = OrderedList()
     list = []
     res = []
-    file = open("number", "r+")     #opening the file to read and write
+    file = open("number", "r+")     # pening the file to read and write
 
     list1 = file.readlines()       #reading the file
 

@@ -13,11 +13,13 @@ def prime_anagram(res):
 # -----------------------------------------------------------------------------------------
 def prime():
     arr = []
-    res = []
-    for i in range(1, 1001):
+    prime_string = []
+    for i in range(2,1001):
         for j in range(2, i - 1):
-            if i % j == 0: break
+            if i % j == 0:
+               break
         else:
+
             arr.append(i)
-    res = [str(i) for i in arr]
-    return res
+    prime_string= [str(i) for i in arr]
+    return prime_string

@@ -1,0 +1,3 @@
+ laxman raikarNone2019-02-03 11:18:41.027264
+laxman raikar('Buy', 'TATA', 'shares : ', 2)2019-02-03 12:05:09.428112
+laxman raikar('Buy', 'TATA', 'shares : ', 1)2019-02-03 12:13:31.299627

@@ -1,21 +1,33 @@
+"""Calender Program
+This program is used to take month and year from user and print corresponding Calender
+Author:Laxman Raikar
+Since:
+    16 JAN,2019
+"""
+
 from utilities.utility import calenarray
-def calender_queue_runner():
 
-    logic_obj =calenarray()
 
-    try:
-        month = int(input('Enter Month:'))
-    except Exception as e:
-        print(e)
-        print("Enter integer only ")
-    try:
-        year = int(input('Enter year:'))
-    except Exception as e:
-        print(e)
-        print("Enter integer only")
+def calender_():
 
-    logic_obj.calender(month, year)
+    logic_obj = calenarray()         # creating the object of class
+    while True:
+        try:
+            month = int(input('Enter Month:'))
+            break
+        except ValueError:
+            print("Enter integer only ")
+            continue
+    while True:
+        try:
+            year = int(input('Enter year:'))
+            break
+        except ValueError:
+            print("Enter integer only")
+            continue
+
+    logic_obj.calender(month, year)         # calling the class and passing parameters
 
 
 if __name__ == "__main__":
-    calender_queue_runner()
+    calender_()
