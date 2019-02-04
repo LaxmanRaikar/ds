@@ -1,3 +1,8 @@
+"""this program is used  to purchase the total number of shares from the user and sell the shares using queue
+author :Laxman Raikar
+since:28 JAN,2019
+"""
+
 import json
 import datetime
 from utilities.utility import que

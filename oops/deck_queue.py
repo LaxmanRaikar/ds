@@ -1,6 +1,10 @@
+""" this program is used to distribute the deck of cards to four players using queue
+@ author : Laxman Raikar
+Since:28 JAN,2019"""
 import random
-from utilities.utility import  Queue
-q = Queue
+from utilities.utility import Queue
+import numpy as np
+q = Queue()
 
 
 class Cards:
@@ -12,7 +16,6 @@ class Cards:
         list_cards = []  # for taking
 
         while len(list_cards) < 37:
-
             card_rank = " "
             random_int = random.randint(0, 12)  # generating random values from 0 to 12
 
@@ -32,17 +35,64 @@ class Cards:
                     # adding element to the list
 
         row = 4
-        # number of players 4
         column = 9
-        # number of cards for each player 9
-        two_d_array = [[0 for j in range(column)] for i in range(row)]  # create blank 2d array
+        two_d_array = [[0 for j in range(column)] for i in range(row)]
         index = 0
         for i in range(row):
+
             for j in range(column):
-                two_d_array[i][j] = list_cards[index]  # append
+                two_d_array[i][j] = list_cards[index]
                 index += 1
+
+        a = np.array(two_d_array)
+        print(a)
+        limit = 9
+        player1 = []
+        player2 = []
+        player3 = []
+        player4 = []
+        for i in list_cards[0:9]:
+            player1.append(i)
+        player1.sort()
+        print()
+        print("Queue data")
+        print()
+        print("Player 1 Cards")
+
+        for j in player1:
+            q.enqueue(j)  # adding to the queue
+        q.show()          # printing from queue
+        print()
+        for i in list_cards[9:18]:
+
+            player2.append(i)
+        player2.sort()
+        print("Player 2 Cards")
+        for l in player2:
+            q.enqueue(l)        # adding to the queue
+        q.show()                # printing from queue
+        print()
+        for i in list_cards[18:27]:
+            player3.append(i)
+        player3.sort()
+        print("Player 3 Cards")
+        for m in player3:
+            q.enqueue(m)        # adding to the queue
+        q.show()                # printing from queue
+        print()
+        for i in list_cards[27:]:
+            player4.append(i)
+        player4.sort()
+        print("Player 4 Cards")
+        for n in player4:
+            q.enqueue(n)        # adding to the queue
+        q.show()                # printing from queue
+
+
+def deck_of_card():
+    p = Cards()
+    p.shuffle()
 
 
 if __name__ == "__main__":
-    c = Cards()
-    c.shuffle()
+    deck_of_card()

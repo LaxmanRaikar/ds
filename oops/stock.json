@@ -39,6 +39,11 @@
       "name": "mi",
       "share": 10,
       "price": 1000
+    },
+    {
+      "name": "ktm",
+      "share": 10,
+      "price": 1000
     }
   ]
 }

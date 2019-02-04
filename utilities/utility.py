@@ -180,9 +180,6 @@ class OrderedList(LinkedList):
             print(res)  # print data of linked list
 
 
-#  ----------------------------------------------------------------------------------------------------------------
-
-
 class Stack:
     top = 0
 
@@ -295,12 +292,13 @@ stack = Stack()
 class Queue:
 
     # This Queue class is used to create Queue.
+    front=None
+    rear=None
 
-    def __init__(self, front, rear):
+    def __init__(self):
+        pass
 
-        # This is the constructor of Queue class .
-        self.front = None
-        self.rear = None
+
 
     def enqueue(self, data):
 
@@ -386,9 +384,11 @@ class que():
     def size(self):
         """this method gives the size of the list"""
         return len(self.list)
+
     def show(self):
+        """"this method will print the values of list"""
         for i in self.list:
-            return self.list[i]
+            print(self.list[i])
 
 
 class dequeue:

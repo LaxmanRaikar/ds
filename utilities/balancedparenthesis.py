@@ -17,11 +17,7 @@ def balance_parentheses():
     This method is used as runner balanced_parentheses(string) method
     """
     stack = Stack()
-    try:
-        string = input("Enter Expression to check for balanced Parentheses: ")
-    except ValueError:
-        print("Enter String")
-
+    string = input("Enter Expression to check for balanced Parentheses: ")
     stack.balanced_parentheses(string)
 
 
