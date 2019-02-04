@@ -1,6 +1,8 @@
 import random
 from utilities.utility import  Queue
-q=Queue
+q = Queue
+
+
 class Cards:
 
     def shuffle(self):
@@ -30,7 +32,7 @@ class Cards:
                     # adding element to the list
 
         row = 4
-        # number of playes 4
+        # number of players 4
         column = 9
         # number of cards for each player 9
         two_d_array = [[0 for j in range(column)] for i in range(row)]  # create blank 2d array
@@ -39,37 +41,6 @@ class Cards:
             for j in range(column):
                 two_d_array[i][j] = list_cards[index]  # append
                 index += 1
-
-        player1 = []
-        player2 = []
-        player3 = []
-        player4 = []
-        l1=[]
-        for i in list_cards[0:9]:
-            i = tuple(((i[:2]), i[2:]))
-            l1.append(i)
-        l1.sort()
-        print()
-        print("Queue data")
-        print()
-        print("Player 1 Cards")
-
-        for j in l1:
-            q.enqueue(j)
-        q.show()
-        print()
-        print("Player 1 cards:")
-        print(player1)
-        print()
-        print("Player 2 cards:")
-        print(player2)
-        print()
-        print("Player 3 cards:")
-        print(player3)
-        print()
-        print("Player 4 cards:")
-        print(player4)
-        print()
 
 
 if __name__ == "__main__":

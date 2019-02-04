@@ -7,7 +7,7 @@ Since:
 
 from utilities.utility import que
 from utilities import abc
-s=que()   # creating object of class
+s = que()   # creating object of class
 
 def prime_que():
     prime_list = abc.prime()  # storing the prime numbers

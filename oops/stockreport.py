@@ -67,7 +67,7 @@ for j in range(no_companies_shares):    # loop for n number of companies which u
                                                         "")
     print("***************************************************************************")
     list.append(total)   # appending the total value in the list so that we can calculate the total price
-sum = 0        #intialization
+sum = 0        # intialization
 for k in range(0,len(list)):        # loop to calculate the sum of elements in list
     sum = sum+list[k]
-print("final total",sum,"Rs")
+print("final total", sum, "Rs")

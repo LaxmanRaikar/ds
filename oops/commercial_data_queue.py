@@ -1,144 +1,144 @@
 import json
 import datetime
-from utilities.utility import Stack
+from utilities.utility import que
 
-from  utilities.utility import Queue
-s = Stack()
-q = Queue()
+que_obj = que
 
-class DataQueue:
+
+class CommercialQueue:
+
     try:
         def __init__(self):
-            with open("stock.json", "r") as stock_jf:
-                stock_jf = json.load(stock_jf)  # load() convert file into python from json
+            with open("stock.json", "r") as stock_json_file:
+                stock_json_file = json.load(stock_json_file)      # load() convert file into python from json
 
-            self.stock_jf = stock_jf
+            self.stock_jf = stock_json_file
             with open("customer.json", "r") as person_json_value:
-                person_json_value = json.load(person_json_value)  # load() convert file into python from json
+                person_json_value = json.load(person_json_value)
             self.person_json_value = person_json_value
 
-        def view_shares(self):
-            # this method is used to print the company name and their stock details
-            for i in range(len(self.stock_jf['company'])):
-                print(i, self.stock_jf['company'][i])
+        def view_shares(self):                   # Iterating through Stock Report by means of checking the length
+            for share in range(len(self.stock_jf['company'])):
+                print(share, self.stock_jf['company'][share])
 
         def check_validity(self):
-            # this method is used to validate the user login and to buy or sell share
+            number = 0
+            name = input("Enter Username\n")
+            # while number < len(self.person_json_value["Person"]):  # Creating the user for buying or selling a shares
+            #  if self.person_json_value["Person"][number]["Name"] == name.title():  # Verifying the user
+            index = number
+            print(self.person_json_value["Person"][number])
+            print("....Login successful....")
+            read_input2 = int(input("1:Buy shares\n2:Sell shares:\n"))
+            if read_input2 == 1:
+                commercial_object.buy_share(index, name)
+            elif read_input2 == 2:
+                commercial_object.sell_share(index, name)
 
-            print("*********** Welcome **************")
-            i = 0
-            name = input("Enter Username")
-            while i < len(self.person_json_value["Person"]):
-                if self.person_json_value["Person"][i]["Name"] == name.title():
-                    index = i
-                    print(self.person_json_value["Person"][i])
-                    print("....Login successful....")
-                    while True:
-                        try:
-                            c = int(input("1:Buy shares\n2:Sell shares:"))
-                            break
-                        except ValueError:
-                            print("enter the decimal value")
-                    if c == 1:
-                        self.buy_share(index, name)
-                    elif c == 2:
-                        self.sell_share(index, name)
+            else:
+                print("wrong Input")
 
-                    else:
-                        print("wrong Input")
-                i += 1
+            number += 1
 
-        def add_new_company(self):
-            # this method is used to add company details into the json file
-            name = input("Enter company name")
-            number = int(input("Enter Your Number of share"))
-            price = int(input('Enter Your Price per share'))
-            new_stock_dict = {"Stock Name": name,
+        def add_new_company(self):                               # Add a new company by adding a new through dictionary
+            name = input("Enter company name\n")
+            number = int(input("Enter Your Number of share\n"))
+            price = int(input('Enter Your Price per share\n'))
+            new_stock_dict = {"name": name,                 # created the dictionary for a new values
 
-                              "Number of Share": number,
+                              "share": number,
 
-                              "Share Price": price}
+                              "price": price}
+            try:
+                with open("stock.json", 'w') as stock_jf:                # Add a new file in a json through a key
+                    self.stock_jf['company'].append(new_stock_dict)
+                    stock_jf.write(json.dumps(self.stock_jf, indent=2))  # Writing a file through python to json
 
-            with open('stock.json', 'w') as stock_jf:
-                self.stock_jf['company'].append(new_stock_dict)
-
-                stock_jf.write(json.dumps(self.stock_jf, indent=2))
-                # adding the details to json file after converting from python to json
+            except FileNotFoundError:
+                print("File Not Found")
 
         def buy_share(self, index, name):
-            for i in range(len(self.stock_jf['company'])):
-                print(i, self.stock_jf['company'][i])
-                # print the stock details of company
-            print('Enter Which Company Share you want to buy')
-            choice = int(input("Enter choice in Int"))
-            buy_share = int(input("Enter Number of Share You want to buy"))
+            for bu_share in range(len(self.stock_jf['company'])):
+                print(bu_share, self.stock_jf['company'][bu_share])
+
+            print('Enter Which Company Share you want to buy\n')
+            choice = int(input("Enter choice in Int\n"))
+            buy_share = int(input("Enter Number of Share You want to buy\n"))
             each_share_price = self.stock_jf['company'][choice]['price']
-            amount_pay = buy_share * each_share_price   # calculate the total of purchased share
+            # Asking for a user to sell shares among indexing
+            amount_pay = buy_share * each_share_price     # Calculating the share that are purchasing
 
             if self.person_json_value['Person'][index]["Total Balance"] > amount_pay:
-
-                print("Total amount you have to pay for ", buy_share, " stocks : ", amount_pay )
+                # Balance should be there while purchasing
+                print("Total amount you have to pay for ", buy_share, " stocks : ", amount_pay)
                 updated_stock_share = self.stock_jf["company"][choice]["share"] - buy_share
-                with open("stock.json", "w") as jf:
+                # Updating the stock
+
+                with open("stock.json", "w") as jf:  # Changing the updated stock in a file
                     self.stock_jf["company"][choice]["share"] = updated_stock_share
                     jf.write(json.dumps(self.stock_jf, indent=2))
 
                 person_updated_balance = self.person_json_value['Person'][index]["Total Balance"] - amount_pay
+                # Subtracting the new share amount from a balance
                 print('Now Your Updated Balance is ', person_updated_balance)
                 person_updated_share = self.person_json_value['Person'][index]['Number of Share'] + buy_share
-                print('Now Your Updated Number of share is ', person_updated_share)
-                dt = datetime.datetime.now()
+                # Adding the new shares in a stock
+                print('Now Your Updated Number of share is ', person_updated_share, "\n")
+                dt = datetime.datetime.now()                             # to show the date
 
-                s.push(("Buy", self.stock_jf["company"][choice]["name"],"shares : ",buy_share))
-                with open("transaction.txt", "a")as txt:
-                    txt.write(name+str(s.show())+str(dt)+"\n")
+                que_obj.queue( self.stock_jf["company"][choice]["name"],  buy_share)
+
+                with open("transaction.txt", "a")as txt:          # open file to append data
+                    txt.write(name + str(que_obj.show()) + str(dt) + "\n")
                 print("stack show")
-                s.show()
-                q.enqueue("B")
-                q.show()
-                with open("customer.json", "w") as jf:
+                que_obj.show()
+
+                que_obj.show()
+
+                with open("customer.json", "w") as jf:                  # open a file to write data
                     self.person_json_value['Person'][index]['Total Balance'] = person_updated_balance
                     self.person_json_value['Person'][index]['Number of Share'] = person_updated_share
                     jf.write(json.dumps(self.person_json_value))
-
             else:
                 print("You Don't have enough money ")
 
         def sell_share(self, index, name):
-            print('Enter choice to sell your share to particular company')
-            for i in range(len(self.stock_jf['company'])):
-                print(i, self.stock_jf['company'][i])
+            print('Enter choice to sell your share to particular company\n')
 
-            choice = int(input("Enter choice in Int"))
+            # this loop is used to show the share of shock report
+            for share in range(len(self.stock_jf['company'])):
+                print(share, self.stock_jf['company'][share])
+
+            choice = int(input("Enter choice in Int\n"))
 
             print('Enter Number of share you want to sell to', self.stock_jf['company'][choice]['name'],
-                  'company')
-            sell_share = int(input("Number of shares to sell "))
+                  'company', "\n")
+            sell_share = int(input("Number of shares to sell \n"))
             updated_stock_share = self.stock_jf["company"][choice]["share"] + sell_share
-            with open("stock.json", "w") as jf:
+
+            with open("stock.json", "w") as jf:     # open a file to dump data (python to json)
                 self.stock_jf["company"][choice]["share"] = updated_stock_share
                 jf.write(json.dumps(self.stock_jf, indent=2))
-
+            # updated share of a person
             updated_person_share = self.person_json_value['Person'][index]["Number of Share"] - sell_share
 
-            person_share_price = int(input("price for per share you want from company"))
-            person_updated_balance = self.person_json_value['Person'][index]["Total Balance"] + person_share_price * sell_share
+            person_share_price = int(input("price for per share you want from company\n"))
+            # user updated balance
+            person_updated_balance = self.person_json_value['Person'][index][
+                                         "Total Balance"] + person_share_price * sell_share
 
             print(' --> ', person_share_price * sell_share, '<--will be Added to your total balance')
-            print('Now Your Updated Balance is ', person_updated_balance)
+            print('Now Your Updated Balance is ', person_updated_balance, "\n")
 
-            print('Now Your Updated Number of share is ', updated_person_share)
-
-            st = datetime.datetime.now()
-
-            q.enqueue(("Sold", self.stock_jf["company"][choice]["name"],"Number of shares : ",sell_share))
-            with open("transaction.txt", "w")as txt:
-                txt.write(name + str(s.show()) + str(st) + "\n")
+            print('Now Your Updated Number of share is ', updated_person_share, "\n")
+            # add the stock report in the inventory
+            que_obj.queue((self.stock_jf["company"][choice]["name"],"Number of shares :", sell_share))
             print("stack show")
-            s.show()
-            q.enqueue("S")
+            que_obj.show()
 
-            with open("customer.json", "w") as jf:
+            que_obj.show()
+
+            with open("customer.json", "w") as jf:                  # open file to write the user details
                 self.person_json_value['Person'][index]['Total Balance'] = person_updated_balance
                 self.person_json_value['Person'][index]['Number of Share'] = updated_person_share
                 jf.write(json.dumps(self.person_json_value, indent=2))
@@ -147,49 +147,24 @@ class DataQueue:
         print(e)
 
 
-def customer_data():
-    p = DataQueue()
-    p.view_shares()
-    # calls view share method
-
-    print("\n1.Admin login.\n2.User login.\n3.Exit ")
-    while True:
-        try:
-
-            choice = int(input("\nEnter choice:"))
-            break
-        except ValueError:
-            print("enter the decimal value")
-            continue
-
-    if choice == 1:
-        print("\nwelcome Admin")
-        print("\n1.To add Company\n2.Exit")
-        while True:
-            try:
-                j = int(input("Enter choice:"))
-                break
-            except ValueError:
-                print("enter the decimal value")
-                continue
-        if j == 1:
-            p.add_new_company()
-            # calls add_new_company() method
-            p.view_shares()
-            # calls view shares method
-        elif j == 2:
-            exit(0)
-        else:
-            print("you have entered wrong input..")
-    elif choice == 2:
-        print("Welcome User")
-        p.check_validity()
-        # calls check_validity method
-    elif choice == 3:
-        exit(0)
-    else:
-        print("Invalid choice....")
-
-
 if __name__ == "__main__":
-    customer_data()
+    while True:
+        commercial_object = CommercialQueue()                       # object for person class
+        commercial_object.view_shares()
+        print("\n")
+        try:
+            read_input = int(input("1: Admin Login or 2: User \n"))
+            if read_input == 1:                                  # To enter as admin
+                print("welcome Admin")
+                read_input1 = int(input("1 to add Company :\n"))
+                if read_input1 == 1:
+                    commercial_object.add_new_company()
+            elif read_input == 2:                                # To enter as user
+                print("Welcome User")
+                commercial_object.check_validity()
+
+            else:
+                print("Invalid choice")
+
+        except ValueError:
+            print("Invalid Value")

@@ -21,7 +21,7 @@ def searching():
         for j in result:
             print(j)
     except ValueError:
-        print(ValueError)
+        print("enter the decimals")
 
 
 if __name__=="__main__":

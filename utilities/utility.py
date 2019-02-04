@@ -115,13 +115,9 @@ class LinkedList:
             file.close()
 
 
-#  ---------------------------------------------------------------------------------------------------------
-
-
 class OrderedList(LinkedList):
 
     # This is used to create OrderedList.
-
 
     def __init__(self):
        self.head=None
@@ -296,28 +292,21 @@ class Stack:
 stack = Stack()
 
 
-#  -------------------------------------------------------------------------------------------------------
 class Queue:
-    """
-    This Queue class is used to create Queue.
-    """
-    front = None
-    rear = None
 
-    def __init__(self):
-        """
-        This is the constructor of Queue class .
-        """
-        pass
+    # This Queue class is used to create Queue.
+
+    def __init__(self, front, rear):
+
+        # This is the constructor of Queue class .
+        self.front = None
+        self.rear = None
 
     def enqueue(self, data):
-        """
-        This method is used to insert data in the Queue .
-        data will be given by user which data to be inserted ,
-        queue follows First in First Out Principle.
-        :param data: data will be given by user
-        :return: nothing
-        """
+
+        # This method is used to insert data in the Queue .
+        # data will be given by user which data to be inserted ,
+        # queue follows First in First Out Principle.
 
         node = Node(data)
 
@@ -332,10 +321,8 @@ class Queue:
             self.rear = self.rear.next
 
     def show(self):
-        """
-        This method is used to display content of queue .
-        :return: nothing
-        """
+
+        # This method is used to display content of queue .
 
         if self.front is None:
             print("Queue is empty")     # print if queue is empty
@@ -348,31 +335,26 @@ class Queue:
         print(self.front.data)
 
     def dequeue(self):
-        """
-        This method is used to delete data from the Queue.
-        data will deleted according to FIFO principle
-        :return: this will return the data that will be removed from the Queue
-        """
+
+        # This method is used to delete data from the Queue.
+        # data will deleted according to FIFO principle
 
         temp = self.front
         self.front = self.front       # delete data which is pointed by front pointer
         return temp.data                # return deleted data
 
     def is_empty(self):
-        """
-       This method is used to know whether Queue is empty or not.
-       :return:this will return true if Queue is empty else return False
-       """
+
+        # This method is used to know whether Queue is empty or not.
+
         if self.front is None:
             return True
         else:
             return False
 
     def size(self):
-        """
-        This method is used to display content of queue.
-        :return: nothing
-        """
+
+        # This method is used to display content of queue.
 
         size = 1
         traverse = self.front
@@ -385,9 +367,7 @@ class Queue:
         return size
 
 
-queue = Queue()
-#  ------------------------------------------------------------------------------------------
-class que(Stack):
+class que():
     def __init__(self):
         self.list = []
 
@@ -406,9 +386,9 @@ class que(Stack):
     def size(self):
         """this method gives the size of the list"""
         return len(self.list)
-
-
-#  ------------------------------------------------------------------------------------------------------------
+    def show(self):
+        for i in self.list:
+            return self.list[i]
 
 
 class dequeue:
@@ -484,8 +464,6 @@ class dequeue:
         return size
 
 
-# ------------------------------------------------------------------------------------------------------
-
 class calenarray:
 
     def calender(self, m, y):
@@ -525,8 +503,6 @@ class calenarray:
             print()
 
 
-#  ----------------------------------------------------------------------------------------------------------
-
 class calen_queue:
 
     def calender(self, m, y):
@@ -553,21 +529,18 @@ class calen_queue:
             for j in range(column):
                 if values <= days[m - 1]:
                     if i == 0 and j < d0:
-                        que.push(b)
+                        Queue.enqueue(' ')
                         continue
                     else:
-                        que.push(values)
+                        Queue.enqueue(values)
                     values += 1
         for i in range(row):
             for j in range(column):
-                if Stack.size() > 0:
-                    x = que.dequeue()  # remove element from queue and store it in x variable
-                    x1 = str(x).ljust(2)  # using ljust() method print formated calender
+                if Queue.size() > 0:
+                    x = Queue.dequeue()  # remove element from queue and store it in x variable
+                    x1 = str(x).ljust(2)  # using ljust() method print formatted calender
                     print(x1, end=" ")
             print()
-
-
-#  ------------------------------------------------------------------------------------------------------
 
 
 class bintree:
@@ -588,9 +561,6 @@ class bintree:
 
             number_list.append((fact1 // (fact2 * fact3)) % 100000007)
         return number_list
-
-
-#  ---------------------------------------------------------------------------------------------------------
 
 
 class Deq:

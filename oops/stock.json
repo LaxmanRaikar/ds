@@ -12,18 +12,33 @@
     },
     {
       "name": "TATA",
-      "share": 0,
+      "share": 2,
       "price": 800
     },
     {
       "name": "FB",
-      "share": 7,
+      "share": 6,
       "price": 1000
     },
     {
       "name": "UBER",
-      "share": 1,
+      "share": 2,
       "price": 1200
+    },
+    {
+      "name": "lays",
+      "share": 4,
+      "price": 1000
+    },
+    {
+      "name": "ola",
+      "share": 1,
+      "price": 1000
+    },
+    {
+      "name": "mi",
+      "share": 10,
+      "price": 1000
     }
   ]
 }
